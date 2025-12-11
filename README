@@ -1,0 +1,145 @@
+🔥🚨 FIRE & SMOKE DETECTION SYSTEM USING ESP32
+Hệ thống phát hiện khói – lửa và điều khiển quạt/bơm thông minh qua MQTT – Node-RED
+1. 🎯 Đặt vấn đề
+
+Hỏa hoạn, rò rỉ khói và cháy lan là một trong những nguyên nhân gây thiệt hại nặng nề về tài sản và con người. Việc phát hiện sớm khói/lửa kết hợp tự động kích hoạt quạt, bơm và còi cảnh báo giúp giảm thiểu rủi ro và hỗ trợ xử lý kịp thời.
+
+Dự án này xây dựng một hệ thống IoT nhận biết khói, lửa, điều khiển quạt – bơm – còi, và hiển thị trạng thái thời gian thực thông qua MQTT + Node-RED Dashboard.
+
+Hệ thống cho phép:
+
+🔥 Phát hiện lửa qua cảm biến Flame
+
+🌫️ Phát hiện khói bằng MQ-2
+
+🔄 Điều khiển quạt, bơm tự động hoặc thủ công
+
+🔊 Còi buzzer bật khi nguy hiểm
+
+🖥️ Theo dõi realtime trên Node-RED Dashboard
+
+🌐 Điều khiển qua Internet bằng MQTT
+
+2. 🛠️ Phần cứng sử dụng
+Thiết bị	Số lượng
+ESP32 DEVKIT V1	1
+Cảm biến khói MQ-2	1
+Cảm biến Flame	1
+Relay 5V	2
+Quạt DC	1
+Bơm mini DC	1
+Còi buzzer thụ động	1
+Màn OLED SSD1306	1
+Breadboard + dây nối	1 bộ
+3. 🔌 Sơ đồ kết nối (Schematic)
+![alt text](test/Sodo.png)
+
+📷 Sơ đồ hệ thống
+
+4. 📸 Ảnh chụp mạch thực tế
+![alt text](test/anhthucte.jpg)
+5. 🖥️ Node-RED Dashboard
+
+File flow Node-RED nằm trong thư mục:
+/nodered/flow.json
+
+Ảnh dashboard:
+![alt text](test/UI.png)
+Dashboard gồm:
+
+Smoke indicator
+
+Flame indicator
+
+Fan / Pump / Buzzer buttons
+
+AUTO – MANUAL switch
+
+Log dữ liệu JSON thời gian thực
+
+6. 📡 Giao tiếp MQTT
+![alt text](test/MQTT.png)
+Broker sử dụng: MQTTX
+
+Chủ đề MQTT:
+Topic	Mô tả
+/sensor/data	ESP32 gửi JSON dữ liệu
+/control/fan	Node-RED gửi lệnh bật/tắt quạt
+/control/pump	Lệnh bật/tắt bơm
+/control/buzzer	Lệnh bật/tắt còi
+/control/mode	Chế độ AUTO / MANUAL
+JSON gửi từ ESP32:
+{
+  "smoke": 205,
+  "flame": 0,
+  "fan": 1,
+  "pump": 1,
+  "buzzer": 1,
+  "auto_mode": 1
+}
+
+7. 📁 Firmware ESP32
+
+Thư mục mã nguồn firmware:
+
+/hethongbaochay/
+    ├── src/
+    ├── platformio.ini
+
+
+Chức năng phần mềm:
+
+Đo MQ-2 và Flame
+
+Gửi dữ liệu JSON mỗi 1 giây
+
+Điều khiển relay quạt/bơm
+
+Điều khiển buzzer thụ động (tone)
+
+Hiển thị trạng thái trên OLED
+
+Nhận lệnh MQTT từ Node-RED
+
+Chế độ AUTO khi phát hiện nguy hiểm
+
+8. 🎬 Video chạy thử
+
+(Dán link video YouTube hoặc upload video vào thư mục video/)
+
+👉 Video demo:
+<video controls src="test/video.mp4" title="Title"></video>
+9. ✔️ Kết quả đạt được
+
+Hệ thống phát hiện khói và lửa chính xác
+
+Điều khiển quạt/bơm/còi hoạt động ổn định
+
+Dashboard Node-RED hiển thị realtime
+
+Tự động xử lý khi có nguy hiểm
+
+Giao tiếp MQTT qua internet mượt và ổn định
+
+10. 📝 Kết luận
+
+Dự án giúp hiểu rõ quy trình xây dựng một hệ thống IoT hoàn chỉnh gồm:
+
+Cảm biến
+
+Điều khiển
+
+Kết nối MQTT
+
+Dashboard Node-RED
+
+Hệ thống hoạt động tốt và có thể mở rộng:
+
+Thêm cảnh báo Telegram
+
+Gửi log lên Google Sheet
+
+Thêm cảm biến nhiệt độ (DS18B20)
+
+Thiết kế hộp đựng + PCB
+
