@@ -34,7 +34,7 @@ Breadboard + dây nối	1 bộ
 3. 🔌 Sơ đồ kết nối (Schematic)
 
 4. 📸 Ảnh chụp mạch thực tế
-![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/b1d19bd73ab41495bfe4ca8a1ca1e48a2cc78a2c/test/anhthucte.jpg)
+![image alt](test/MQTT.png)
 5. 🖥️ Node-RED Dashboard
 
 Ảnh dashboard:
