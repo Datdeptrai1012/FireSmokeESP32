@@ -36,15 +36,11 @@ Breadboard + dây nối	1 bộ
 
 
 4. 📸 Ảnh chụp mạch thực tế
-
-=======
-
-4. 📸 Ảnh chụp mạch thực tế
-![image alt](test/MQTT.png)
->>>>>>> 2fcae9762722690de76ae2e16ce83a91878a8774:README
+![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/cec1c36dcec0fc5559158399a34fba991e06667e/image/anhthucte.jpg)
 5. 🖥️ Node-RED Dashboard
-
 Ảnh dashboard:
+![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/cec1c36dcec0fc5559158399a34fba991e06667e/image/UI.png)
+
 
 Dashboard gồm:
 
@@ -59,6 +55,7 @@ AUTO – MANUAL switch
 Log dữ liệu JSON thời gian thực
 
 6. 📡 Giao tiếp MQTT
+![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/cec1c36dcec0fc5559158399a34fba991e06667e/image/MQTT.png)
 
 Broker sử dụng: MQTTX
 
@@ -66,6 +63,7 @@ Chủ đề MQTT:
 Topic	Mô tả
 home/control ; gửi lệnh điều khiển
 home/sensor/data : dữ liệu cảm biến
+![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/cec1c36dcec0fc5559158399a34fba991e06667e/image/nodered.png)
 JSON gửi từ ESP32:
 {
   "smoke": 205,
