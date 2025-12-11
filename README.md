@@ -32,10 +32,16 @@ Còi buzzer thụ động	1
 Màn OLED SSD1306	1
 Breadboard + dây nối	1 bộ
 3. 🔌 Sơ đồ kết nối (Schematic)
+<<<<<<< HEAD:README.md
 
 
 4. 📸 Ảnh chụp mạch thực tế
 
+=======
+
+4. 📸 Ảnh chụp mạch thực tế
+![image alt](test/MQTT.png)
+>>>>>>> 2fcae9762722690de76ae2e16ce83a91878a8774:README
 5. 🖥️ Node-RED Dashboard
 
 Ảnh dashboard:
