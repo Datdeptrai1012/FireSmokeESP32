@@ -1,11 +1,71 @@
+1.Đặt vấn đề:
+Các vụ cháy nổ trong gia đình và nhà kho nhỏ lẻ thường xuất phát từ:
+Chập điện, Rò rỉ gas, Đốt nến hoặc than, Sự cố hút thuốc gần vật liệu dễ cháy.
+Việc phát hiện sớm khói hoặc lửa giúp:
+Cảnh báo kịp thời
+Tự động kích hoạt quạt + bơm chữa cháy
+Gửi tín hiệu từ xa để chủ nhà xử lý nhanh
+➡ Dự án nhằm tạo ra hệ thống cảnh báo cháy – khói tự động, giá rẻ, và điều khiển từ xa qua MQTT + Node-RED.
 
-This directory is intended for PlatformIO Test Runner and project tests.
-
-Unit Testing is a software testing method by which individual units of
-source code, sets of one or more MCU program modules together with associated
-control data, usage procedures, and operating procedures, are tested to
-determine whether they are fit for use. Unit testing finds problems early
-in the development cycle.
-
-More information about PlatformIO Unit Testing:
-- https://docs.platformio.org/en/latest/advanced/unit-testing/index.html
+2. Kiến trúc hệ thống:
+ESP32 đọc cảm biến → Xử lý → Gửi dữ liệu MQTT → Node-RED hiển thị + điều khiển
+MQ-2 (khói) ──┐
+              │
+Flame sensor ─┤── ESP32 ── MQTT ── Node-RED Dashboard
+              │
+Quạt/ Bơm/ Còi ┘
+ESP32 có 2 chế độ:
+AUTO: tự bật bơm/quạt/còi khi phát hiện cháy hoặc khói.
+MANUAL: điều khiển qua Node-RED.
+3. Phần cứng sử dụng
+Thiết bị	Số lượng
+ESP32 DOIT DevKit V1	1
+Cảm biến khói MQ-2	1
+Cảm biến lửa Flame IR	1
+Relay điều khiển quạt	1
+Relay điều khiển bơm	1
+Còi thụ động/buzzer	1
+Màn OLED 0.96" SSD1306 I2C	1
+Breadboard + dây nối	-
+4. Sơ đồ nối dây
+MQ-2 Sensor
+MQ-2 pin	ESP32 pin
+A0	34
+VCC	5V
+GND	GND
+Flame Sensor
+Flame pin	ESP32 pin
+DO	27
+VCC	3.3V
+GND	GND
+Relay
+Relay	ESP32 pin
+Fan relay	14
+Pump relay	12
+Buzzer (thụ động)
+Buzzer	ESP32 pin
++	25
+–	GND
+OLED SSD1306
+OLED pin	ESP32 pin
+SDA	21
+SCL	22
+VCC	3.3V
+GND	GND
+5. Giao diện Node-RED Dashboard
+Dashboard gồm:
+Hiển thị giá trị khói (MQ2)
+Hiển thị trạng thái lửa
+Nút bật/tắt quạt
+Nút bật/tắt máy bơm
+Nút bật/tắt còi
+Nút bật/tắt Auto Mode
+Biểu đồ realtime MQTT
+Tự động cập nhật mỗi 0.5 giây
+6.Kết luận
+Dự án đã hoạt động ổn định, cho thấy ESP32 hoàn toàn đủ khả năng xây dựng một hệ thống cảnh báo cháy giá rẻ nhưng hiệu quả.
+Các hướng phát triển tiếp theo:
+Thêm module gửi SMS (SIM800L)
+Lưu log cháy vào Google Sheet
+Kết nối Home Assistant
+AI phân loại mức độ cháy qua camera ESP32-CAM
