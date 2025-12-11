@@ -32,19 +32,14 @@ Còi buzzer thụ động	1
 Màn OLED SSD1306	1
 Breadboard + dây nối	1 bộ
 3. 🔌 Sơ đồ kết nối (Schematic)
-![alt text](test/Sodo.png)
 
-📷 Sơ đồ hệ thống
 
 4. 📸 Ảnh chụp mạch thực tế
-![alt text](test/anhthucte.jpg)
+
 5. 🖥️ Node-RED Dashboard
 
-File flow Node-RED nằm trong thư mục:
-/nodered/flow.json
-
 Ảnh dashboard:
-![alt text](test/UI.png)
+
 Dashboard gồm:
 
 Smoke indicator
@@ -58,16 +53,13 @@ AUTO – MANUAL switch
 Log dữ liệu JSON thời gian thực
 
 6. 📡 Giao tiếp MQTT
-![alt text](test/MQTT.png)
+
 Broker sử dụng: MQTTX
 
 Chủ đề MQTT:
 Topic	Mô tả
-/sensor/data	ESP32 gửi JSON dữ liệu
-/control/fan	Node-RED gửi lệnh bật/tắt quạt
-/control/pump	Lệnh bật/tắt bơm
-/control/buzzer	Lệnh bật/tắt còi
-/control/mode	Chế độ AUTO / MANUAL
+home/control ; gửi lệnh điều khiển
+home/sensor/data : dữ liệu cảm biến
 JSON gửi từ ESP32:
 {
   "smoke": 205,
@@ -103,13 +95,7 @@ Nhận lệnh MQTT từ Node-RED
 
 Chế độ AUTO khi phát hiện nguy hiểm
 
-8. 🎬 Video chạy thử
-
-(Dán link video YouTube hoặc upload video vào thư mục video/)
-
-👉 Video demo:
-<video controls src="test/video.mp4" title="Title"></video>
-9. ✔️ Kết quả đạt được
+8. ✔️ Kết quả đạt được
 
 Hệ thống phát hiện khói và lửa chính xác
 
@@ -142,4 +128,5 @@ Gửi log lên Google Sheet
 Thêm cảm biến nhiệt độ (DS18B20)
 
 Thiết kế hộp đựng + PCB
+
 
