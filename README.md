@@ -32,7 +32,7 @@ Còi buzzer thụ động	1
 Màn OLED SSD1306	1
 Breadboard + dây nối	1 bộ
 3. 🔌 Sơ đồ kết nối (Schematic)
-<<<<<<< HEAD:README.md
+![image alt](https://github.com/Datdeptrai1012/FireSmokeESP32/blob/37ef7070b015735b4507a95ed57c46c65178de59/image/Sodo.png)
 
 
 4. 📸 Ảnh chụp mạch thực tế
